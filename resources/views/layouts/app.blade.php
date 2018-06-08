@@ -26,17 +26,17 @@
 </head>
 <body>
     <div class="navbar navbar-fixed-top navbar-inverse">
-        <div class="container-fluid">
+        <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand brand" href="index.php">
+                <a class="navbar-brand brand" href="{{ route('main') }}">
                     <h2>
                         FactorioBluePrintShare
                     </h2>
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="index.php">
+                <li {{ Route::currentRouteName() == 'main' ? 'class=active' : '' }}>
+                    <a href="{{ route('main') }}">
                         <h4>
                             FBP Home
                         </h4>
@@ -58,44 +58,61 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                        Dropdown <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#">
-                                Action
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Another action
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Something else here
-                            </a>
-                        </li>
-                        <li role="separator" class="divider">
+                @if(Auth::check())
+                    <li>
+                        <a href="{{ route('login') }}">
+                            <h4>
+                                Login
+                            </h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('register') }}">
+                            <h4>
+                                Register
+                            </h4>
+                        </a>
+                    </li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
 
-                        </li>
-                        <li class="dropdown-header">
-                            Nav header
-                        </li>
-                        <li>
-                            <a href="#">
-                                Separated link
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                            One more separated link
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">
+                                    Action
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Another action
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Something else here
+                                </a>
+                            </li>
+                            <li role="separator" class="divider">
+
+                            </li>
+                            <li class="dropdown-header">
+                                Nav header
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Separated link
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    One more separated link
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>
