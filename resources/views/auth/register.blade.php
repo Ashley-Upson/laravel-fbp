@@ -11,17 +11,18 @@
             <div class="row">
                 <div class="col-sm-6">
                     <form method="POST" action="{{ route('register') }}">
+                        @csrf
                         <div class="form-group">
                             <label>
                                 Name
                             </label>
-                            <input type="text" name="name" class="form-control input-sm" placeholder="Name..." required />
+                            <input type="text" name="name" class="form-control input-sm" placeholder="Name..." required autofocus />
                         </div>
                         <div class="form-group">
                             <label>
                                 Email
                             </label>
-                            <input type="email" name="email" class="form-control input-sm" placeholder="Email..." required autofocus />
+                            <input type="email" name="email" class="form-control input-sm" placeholder="Email..." required />
                         </div>
                         <div class="form-group">
                             <label>
