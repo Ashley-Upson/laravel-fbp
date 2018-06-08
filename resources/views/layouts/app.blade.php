@@ -66,7 +66,9 @@
                     @if(Auth::check())
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                                Welcome, {{ Auth::user() }}
+                                <h4>
+                                    Welcome, {{ Auth::user()->name }}
+                                </h4>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
