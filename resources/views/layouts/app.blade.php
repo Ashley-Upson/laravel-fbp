@@ -68,27 +68,19 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                                 <h4>
                                     Welcome, {{ Auth::user()->name }}
+                                    <i class="fa fa-caret-down"></i>
                                 </h4>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="#">
-                                        Action
-                                    </a>
+                                    <form name="logout" method="post" action="{{ route('logout') }}" style="padding-left: 20px;">
+                                        @csrf
+                                        <button class="btn btn-danger">
+                                            Logout
+                                        </button>
+                                    </form>
                                 </li>
-                                <li>
-                                    <a href="#">
-                                        Another action
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Something else here
-                                    </a>
-                                </li>
-                                <li role="separator" class="divider">
-
-                                </li>
+                                <li role="separator" class="divider"></li>
                                 <li class="dropdown-header">
                                     Nav header
                                 </li>

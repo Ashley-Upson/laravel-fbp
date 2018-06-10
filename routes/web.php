@@ -13,8 +13,15 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('main');
+Route::get('/home', 'MainController@index')->name('main');
 
 Route::get('/', function() {
     return redirect()->route('main');
+});
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/blueprints', 'BlueprintsController@showAll')->name('all-blueprints');
+    Route::get('/blueprints/user/{user}', 'BlueprintsController@userBlueprints')->name('user-blueprints');
+    Route::get('/blueprints/saved/{user}', 'BlueprintsController@savedBlueprints')->name('saved-blueprints');
+    Route::get('/blueprints/add', 'BlueprintsController@addBlueprint')->name('add-blueprint');
 });
