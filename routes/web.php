@@ -11,17 +11,22 @@
 |
 */
 
-Auth::routes();
+Auth::routes(); // Login, logout etc.
 
-Route::get('/home', 'MainController@index')->name('main');
+Route::get('/', 'MainController@index')->name('main');
 
-Route::get('/', function() {
-    return redirect()->route('main');
-});
+Route::group(['prefix' => 'blueprints'], function() {
+    Route::get('/', 'BlueprintController@showAll')->name('all-blueprints');
+    Route::get('view/{blueprint}', 'BlueprintController@show')->name('view-blueprint');
+    Route::get('user/{user}', 'BlueprintController@userBlueprints')->name('user-blueprints');
+    Route::get('saved/{user}', 'BlueprintController@savedBlueprints')->name('saved-blueprints');
 
-Route::group(['middleware' => 'auth'], function() {
-    Route::get('/blueprints', 'BlueprintsController@showAll')->name('all-blueprints');
-    Route::get('/blueprints/user/{user}', 'BlueprintsController@userBlueprints')->name('user-blueprints');
-    Route::get('/blueprints/saved/{user}', 'BlueprintsController@savedBlueprints')->name('saved-blueprints');
-    Route::get('/blueprints/add', 'BlueprintsController@addBlueprint')->name('add-blueprint');
+    Route::group(['middleware' => 'auth'], function() {
+        Route::get('add', 'BlueprintController@add')->name('add-blueprint');
+        Route::get('edit/{blueprint}', 'BlueprintController@edit')->name('edit-blueprint');
+
+        Route::post('add', 'BlueprintController@create')->name('create-blueprint');
+        Route::post('update/{id}', 'BlueprintController@update')->name('update-blueprint');
+        Route::post('delete/{id}', 'BlueprintController@delete')->name('delete-blueprint');
+    });
 });

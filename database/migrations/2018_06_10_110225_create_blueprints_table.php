@@ -15,6 +15,11 @@ class CreateBlueprintsTable extends Migration
     {
         Schema::create('blueprints', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
+            $table->string('name');
+            $table->longText('bp_string');
+            $table->text('description');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

@@ -22,3 +22,13 @@
 .dropdown-menu li a {
     padding-left: 25px;
 }
+
+.blueprint-image-small {
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.blueprint-image {
+    max-width: 500px;
+    max-height: 500px;
+}

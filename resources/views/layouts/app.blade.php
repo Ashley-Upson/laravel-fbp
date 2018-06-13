@@ -33,7 +33,7 @@
                 <div class="navbar-header">
                     <a class="navbar-brand brand" href="{{ route('main') }}">
                         <h2>
-                            FactorioBluePrintShare
+                            Factorio Blueprint Share
                         </h2>
                     </a>
                 </div>
@@ -46,16 +46,16 @@
                         </a>
                     </li>
                     @if(Auth::check())
-                        <li>
-                            <a href="">
+                        <li {{ Route::currentRouteName() == 'add-blueprint' ? 'class=active' : '' }}>
+                            <a href="{{ route('add-blueprint') }}">
                                 <h4>
                                     Add Blueprint
                                 </h4>
                             </a>
                         </li>
                     @endif
-                    <li>
-                        <a href="">
+                    <li  {{ in_array(Route::currentRouteName(), ['all-blueprints', 'view-blueprint']) ? 'class=active' : '' }}>
+                        <a href="{{ route('all-blueprints') }}">
                             <h4>
                                 View Blueprints
                             </h4>

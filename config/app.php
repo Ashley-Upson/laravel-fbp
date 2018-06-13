@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'FactorioBluePrintShare'),
+    'name' => env('APP_NAME', 'Factorio Blueprint Share'),
 
     /*
     |--------------------------------------------------------------------------
