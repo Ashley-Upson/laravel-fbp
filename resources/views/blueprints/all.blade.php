@@ -24,7 +24,7 @@
         @endif
         @foreach($blueprints as $blueprint)
             <div class="col-sm-4">
-                @if(Auth::user()->id == $blueprint->user_id)
+                @if(Auth::check() && Auth::user()->id == $blueprint->user_id)
                     <div class="pull-right">
                         <form class="form" name="remove-blueprint" method="post" action="{{ route('delete-blueprint', ['id' => $blueprint->id]) }}">
                             @csrf
