@@ -41,7 +41,7 @@
                 </h4>
                 @if($blueprint->image != null)
                     <br>
-                    <img src="public/storage/app/public/{{ str_replace('public/', '', $blueprint->image )}}" class="blueprint-image-small" />
+                    <img src="{{ str_replace('public/', 'storage/', asset($blueprint->image)) }}" class="blueprint-image-small" />
                 @endif
                 <br>
                 <p>
