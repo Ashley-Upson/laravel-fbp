@@ -12,7 +12,7 @@
             </h4>
             @if($blueprint->image != null)
                 <br>
-                <img src="{{ asset($blueprint->image) }}" class="blueprint-image" />
+                <img src="{{ str_replace('public/', 'storage/', asset($blueprint->image)) }}" class="blueprint-image" />
             @endif
             <br>
             <p>
